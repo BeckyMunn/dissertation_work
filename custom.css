@@ -1,0 +1,54 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #518BB7;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #FFFFFF;
+    display: block;
+}
+
+.sidenav p {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+    display: block;
+}
+
+.sidenav a:hover {
+    color: #000000;
+}
+
+.main {
+    margin-left: 220px; /* Same as the width of the sidenav */
+    padding: 10px 10px 10px 32px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.tab { margin-left: 25px; }
+
+.error{
+  color: red;
+}
+/* Side bar sourced from - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav */
+/* favicon from https://www.favicon-generator.org */

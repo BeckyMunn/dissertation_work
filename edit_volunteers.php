@@ -15,7 +15,7 @@ catch (PDOException $e)
 try
 {
   $selected_volunteer = $_POST["id"];
-  $sql1 = "SELECT id, first_name, last_name FROM volunteers WHERE id = '$selected_volunteer'";
+  $sql1 = "SELECT id, first_name, last_name FROM volunteers WHERE id = '$selected_volunteer' ORDER BY first_name";
   $result1 = $pdo->query($sql1);
 }
 catch (PDOException $e)

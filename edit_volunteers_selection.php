@@ -14,7 +14,7 @@ catch (PDOException $e)
 }
 try
 {
-	$sql = 'SELECT id, first_name, last_name FROM volunteers';
+	$sql = 'SELECT id, first_name, last_name FROM volunteers ORDER BY first_name';
 	$result = $pdo->query($sql);
 }
 catch (PDOException $e)

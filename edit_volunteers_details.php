@@ -15,10 +15,8 @@ catch (PDOException $e)
 try
 {
   $selected_volunteer = $_POST["name"];
-  $sql1 = "SELECT id, first_name, last_name FROM volunteers WHERE id = '$selected_volunteer'";
-//  $sql2 = "SELECT volunteer_roles.role_id, roles.role From roles INNER JOIN volunteer_roles ON roles.id = volunteer_roles.role_id WHERE vol_id = '$selected_volunteer'";
+  $sql1 = "SELECT id, first_name, last_name FROM volunteers WHERE id = '$selected_volunteer' ORDER BY first_name";
   $result1 = $pdo->query($sql1);
-//  $result2 = $pdo->query($sql2);
 }
 catch (PDOException $e)
 {
@@ -33,6 +31,7 @@ $details = "<form action=\"edit_volunteers.php\"method=\"POST\">";
 
 while ($row = $result1->fetch())
 {
+  $id = $row['id'];
   $details .= "First name:<br>";
   $details .= "<input type=\"text\" name=\"firstname\" value=\"" . $row['first_name'] . "\">";
   $details .= "<br>";
@@ -55,5 +54,9 @@ $details .= "</select>";
 $details .= "<span class=\"error\">" . $result4 . "</span>";
 $details .= "<br/><br/>";
 $details .= "<input type=\"submit\" value=\"Edit\"></form>";
+
+$details .= "<form action=\"delete_volunteer.php\" method=\"POST\">";
+$details .= "<input type=\"submit\" value=\"Delete Volunteer\" />";
+$details .= "<input type=\"hidden\" id=\"id\" name=\"id\" value =\"" . $id . "\">";
 
 include 'edit_volunteers_details.html.php';

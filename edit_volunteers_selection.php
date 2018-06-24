@@ -24,7 +24,7 @@ catch (PDOException $e)
 	exit();
 }
 
-$list = "<form action=\"edit_volunteers_details.php\" method=\"get\"><select name = \"name\"><option value= \"0\">Please select a volunteer...</option>";
+$list = "<form action=\"edit_volunteers_details.php\" method=\"POST\"><select name = \"name\"><option value= \"0\">Please select a volunteer...</option>";
 
 while ($row = $result->fetch())
 {

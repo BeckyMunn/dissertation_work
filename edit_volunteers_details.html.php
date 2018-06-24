@@ -19,15 +19,13 @@
   </div>
 <div class="main">
 	<h1>Edit Volunteers</h1>
-  <p> Here are the details for the Volunteer.</p>
+  <p> Use this page to change details of a volunteer, or select "Start Again" to select another user.</p>
   <form action="edit_volunteers_selection.php">
     <input type="submit" value="Start Again" />
-    <br></br>
+    <br/><br/>
   </form>
   <?php echo $details; ?>
 </div>
 
 </body>
 </html>
-
-<!--Side bar sourced from - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav-->

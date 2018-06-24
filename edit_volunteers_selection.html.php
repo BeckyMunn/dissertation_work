@@ -25,5 +25,3 @@
 
 </body>
 </html>
-
-<!--Side bar sourced from - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav-->

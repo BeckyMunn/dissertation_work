@@ -14,14 +14,37 @@ catch (PDOException $e)
 }
 try
 {
+  $selected_volunteer = $_POST["id"];
+  $sql1 = "SELECT id, first_name, last_name FROM volunteers WHERE id = '$selected_volunteer'";
+  $result1 = $pdo->query($sql1);
+}
+catch (PDOException $e)
+{
+	$error = 'Error fetching volunteer roles: ' . $e->getMessage();
+	include 'error.html.php';
+	exit();
+}
+try
+{
   $firstNameErr = "";
   $lastNameErr = "";
-  $result = "";
-  $firstname = $_GET['firstname'];
-  $lastname = $_GET['lastname'];
-  $orgfirstname = $_GET['orgfirstname'];
-  $orglastname = $_GET['orglastname'];
-  $id = $_GET['id'];
+  $result4 = "";
+  $firstname = $_POST['firstname'];
+  $lastname = $_POST['lastname'];
+  $orgfirstname = $_POST['orgfirstname'];
+  $orglastname = $_POST['orglastname'];
+  $id = $_POST['id'];
+
+//creates sql to add new roles to user
+
+	$rolesArray = $_POST['roles'];
+	$i = 0;
+	$sql6 = "INSERT INTO `volunteer_roles`(`vol_id`, `role_id`) VALUES";
+	foreach ($rolesArray as $key => $value) {
+	        $i++;
+            $sql6 .= "($id,$value)";
+            if (next($rolesArray)==true) $sql6 .= ",";
+    }
 
   if ($firstname == "") {
     $lastNameErr = "";
@@ -35,9 +58,12 @@ try
   }
 
   else {
-    $sql = "UPDATE volunteers SET first_name = '$firstname', last_name = '$lastname' WHERE id = $id";
-    $pdo->query($sql);
-    $result = "Success! $firstname $lastname edited.";
+    $sql4 = "UPDATE volunteers SET first_name = '$firstname', last_name = '$lastname' WHERE id = $id";
+    $sql5 = "DELETE FROM `volunteer_roles` WHERE vol_id = $id";
+    $pdo->query($sql4);
+    $pdo->query($sql5);
+    $pdo->query($sql6);
+    $result4 = "Success! $firstname $lastname edited.";
     $orgfirstname = $firstname;
     $orglastname = $lastname;
   }
@@ -49,20 +75,7 @@ catch (PDOException $e)
 	exit();
 }
 
-$details = "<form action=\"edit_volunteers.php\">";
-$details .= "First name:<br>";
-$details .= "<input type=\"text\" name=\"firstname\" value=\"" . $orgfirstname . "\">";
-$details .= "<span class=\"error\">" . $firstNameErr . "</span>";
-$details .= "<br>";
-$details .= "Last name:<br>";
-$details .= "<input type=\"text\" name=\"lastname\" value=\"" . $orglastname . "\">";
-$details .= "<span class=\"error\">" . $lastNameErr . "</span>";
-$details .= "<br><br>";
-$details .= "<input type=\"hidden\" id=\"id\" name=\"id\" value =\"" . $id . "\">";
-$details .= "<input type=\"hidden\" id=\"orgfirstname\" name=\"orgfirstname\" value =\"" . $orgfirstname . "\">";
-$details .= "<input type=\"hidden\" id=\"orglastname\" name=\"orglastname\" value =\"" . $orglastname . "\">";
-$details .= "<span class=\"error\">" . $result . "</span>";
-$details .= "<br></br>";
-$details .= "<input type=\"submit\" value=\"Edit\"></form>";
+$details = "<span class=\"error\">" . $result4 . "</span>";
 
-include 'edit_volunteers.html.php';
+
+include 'edit_volunteers_details.html.php';

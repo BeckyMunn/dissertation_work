@@ -14,14 +14,15 @@
     <a class="tab" href="edit_volunteers_selection.php">Edit Volunteers</a>
     <a class="tab" href="add_volunteers.html.php">Add Volunteers</a>
     <h1>Schedules</h1>
-    <a class="tab" href="#">View/Edit Schedules</a>
-    <a class="tab" href="#">Add Schedules</a>
+    <a class="tab" href="view_schedules.php">View/Edit Schedules</a>
+    <a class="tab" href="add_schedules.php">Add Schedules</a>
   </div>
 
 <div class="main">
 	<h1>View Volunteers</h1>
-  <form action="volunteers_by_role.php" method="get">
-  <select name = "role">
+  <form action="volunteers_by_role.php" method="get" class="form-inline">
+  <div class="form-group">
+  <select name = "role" class="form-control">
     <option value= "0">Please select a role...</option>
     <option value= "0">All Roles</option>
     <option value = "1"> Sound Console</option>
@@ -29,7 +30,9 @@
     <option value = "3"> Platform Mic</option>
     <option value = "4"> Car Watch</option>
     <option value = "5"> Door Watch</option>
-    <input type="submit">
+    </div>
+    <input type="submit" class="btn btn-primary">
+    <br>
   </form>
   <small>Here is a list of all the volunteers currently registered for duty.</small>
 	<p><?php echo $str; ?></p>

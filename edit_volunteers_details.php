@@ -53,10 +53,10 @@ $details .= "<option value=\"5\">Door Watch</option>";
 $details .= "</select>";
 $details .= "<span class=\"error\">" . $result4 . "</span>";
 $details .= "<br/><br/>";
-$details .= "<input type=\"submit\" value=\"Edit\"></form>";
-
+$details .= "<input type=\"submit\" class=\"btn btn-primary\" value=\"Edit\"></form>";
+$details .= "<br/><br/>";
 $details .= "<form action=\"delete_volunteer.php\" method=\"POST\">";
-$details .= "<input type=\"submit\" value=\"Delete Volunteer\" />";
+$details .= "<input type=\"submit\" class=\"btn btn-primary\" value=\"Delete Volunteer\" />";
 $details .= "<input type=\"hidden\" id=\"id\" name=\"id\" value =\"" . $id . "\">";
 
 include 'edit_volunteers_details.html.php';

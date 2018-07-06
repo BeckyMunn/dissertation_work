@@ -24,12 +24,13 @@ catch (PDOException $e)
 	exit();
 }
 
-$list = "<form action=\"edit_volunteers_details.php\" method=\"POST\"><select name = \"name\"><option value= \"0\">Please select a volunteer...</option>";
-
+$list = "<form action=\"edit_volunteers_details.php\" class=\"form-inline\" method=\"POST\"><select name = \"name\" class=\"form-control\"><option value= \"0\">Please select a volunteer...</option>";
+$list .= "<div class=\"form-group\">";
 while ($row = $result->fetch())
 {
   $list .= "<option value=" . $row['id'] . ">" . "$row[first_name]" . " " . "$row[last_name]" . "</option>";
 }
-$list .= "<input type=\"submit\"></form>";
+$list .= "<\div>";
+$list .= "<input type=\"submit\"class=\"btn btn-primary\"></form>";
 
 include 'edit_volunteers_selection.html.php';

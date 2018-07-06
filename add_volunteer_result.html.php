@@ -13,8 +13,8 @@
   <a class="tab" href="#">Edit Volunteers</a>
   <a class="tab" href="add_volunteers.html.php">Add Volunteers</a>
   <h1>Schedules</h1>
-  <a class="tab" href="#">View/Edit Schedules</a>
-  <a class="tab" href="#">Add Schedules</a>
+  <a class="tab" href="view_schedules.php">View/Edit Schedules</a>
+  <a class="tab" href="add_schedules.php">Add Schedules</a>
 </div>
 
 <div class="main">
@@ -31,7 +31,7 @@
   Last name:  <input type="text" name="lastname">
   <span class="error"> * <?php echo $lastNameErr ?></span>
   <br><br>
-  <input type="submit" name="submit" value="Submit">
+  <input type="submit" class="btn btn-primary" name="submit" value="Submit">
   <span class="error"> <?php echo $result;?></span>
   </div>
 </form>

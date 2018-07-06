@@ -14,14 +14,14 @@
     <a class="tab" href="edit_volunteers_selection.php">Edit Volunteers</a>
     <a class="tab" href="add_volunteers.html.php">Add Volunteers</a>
     <h1>Schedules</h1>
-    <a class="tab" href="#">View/Edit Schedules</a>
-    <a class="tab" href="#">Add Schedules</a>
+    <a class="tab" href="view_schedules.php">View/Edit Schedules</a>
+    <a class="tab" href="add_schedules.php">Add Schedules</a>
   </div>
 <div class="main">
 	<h1>Edit Volunteers</h1>
   <p> Use this page to change details of a volunteer, or select "Start Again" to select another user.</p>
   <form action="edit_volunteers_selection.php">
-    <input type="submit" value="Start Again" />
+    <input type="submit" class="btn btn-primary" value="Start Again" />
     <br/><br/>
   </form>
   <?php echo $details; ?>

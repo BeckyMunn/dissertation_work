@@ -39,12 +39,10 @@ try
 
             //--------------------------------------------- Sound Console
             $found = "0";
-//            $sql_sound_console_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '1' ORDER BY last_used DESC";
-//            $sound_console_last_used = $pdo->query($sql_sound_console_last_used);
             $row = $sound_console_last_used ->fetch();
             $vol_id = $row['vol_id'];
             if ($row == NULL) {
-                $sql_sound_console_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '3' ORDER BY last_used DESC";
+                $sql_sound_console_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '1' ORDER BY last_used DESC";
                 $sound_console_last_used = $pdo->query($sql_sound_console_last_used);
                 $row = $sound_console_last_used ->fetch();
                 $vol_id = $row['vol_id'];
@@ -57,8 +55,6 @@ try
 
             //--------------------------------------------- Platform Mic
             $found = "0";
-//            $sql_platform_mic_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '3' ORDER BY last_used DESC";
-//            $platform_mic_last_used = $pdo->query($sql_platform_mic_last_used);
             $row = $platform_mic_last_used ->fetch();
             $vol_id = $row['vol_id'];
             if ($row == NULL) {
@@ -110,7 +106,7 @@ try
                     if ($row == NULL) {
                         $sql_mics_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '2' ORDER BY last_used DESC";
                         $mics_last_used = $pdo->query($sql_mics_last_used);
-                        $row = $platform_mic_last_used ->fetch();
+                        $row = $mics_last_used ->fetch();
                         $vol_id = $row['vol_id'];
                      }
                   $found = "0";
@@ -128,6 +124,11 @@ try
 
             $found = "0";
             $row = $mics_last_used ->fetch();
+            if ($row == NULL) {
+                $sql_mics_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '2' ORDER BY last_used DESC";
+                $mics_last_used = $pdo->query($sql_mics_last_used);
+                $row = $mics_last_used ->fetch();
+            }
             $vol_id = $row['vol_id'];
             while ($found != "1"){
                 if (in_array("$vol_id", $used_for_this_date))
@@ -137,7 +138,7 @@ try
                     if ($row == NULL) {
                         $sql_mics_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '2' ORDER BY last_used DESC";
                         $mics_last_used = $pdo->query($sql_mics_last_used);
-                        $row = $platform_mic_last_used ->fetch();
+                        $row = $mics_last_used ->fetch();
                         $vol_id = $row['vol_id'];
                      }
                   $found = "0";
@@ -155,6 +156,11 @@ try
 
             $found = "0";
             $row = $mics_last_used ->fetch();
+            if ($row == NULL) {
+                $sql_mics_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '2' ORDER BY last_used DESC";
+                $mics_last_used = $pdo->query($sql_mics_last_used);
+                $row = $mics_last_used ->fetch();
+            }
             $vol_id = $row['vol_id'];
             while ($found != "1"){
                 if (in_array("$vol_id", $used_for_this_date))
@@ -164,7 +170,7 @@ try
                     if ($row == NULL) {
                         $sql_mics_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '2' ORDER BY last_used DESC";
                         $mics_last_used = $pdo->query($sql_mics_last_used);
-                        $row = $platform_mic_last_used ->fetch();
+                        $row = $mics_last_used ->fetch();
                         $vol_id = $row['vol_id'];
                      }
                   $found = "0";
@@ -183,6 +189,11 @@ try
             //--------------------------------------------- Car Watch
             $found = "0";
             $row = $car_watch_last_used ->fetch();
+            if ($row == NULL) {
+                $sql_car_watch_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '4' ORDER BY last_used DESC";
+                $car_watch_last_used = $pdo->query($sql_car_watch_last_used);
+                $row = $car_watch_last_used ->fetch();
+             }
             $vol_id = $row['vol_id'];
             while ($found != "1"){
                 if (in_array("$vol_id", $used_for_this_date))
@@ -211,6 +222,11 @@ try
             //--------------------------------------------- Door Watch
             $found = "0";
             $row = $door_watch_last_used ->fetch();
+            if ($row == NULL) {
+                $sql_door_watch_last_used = "SELECT vol_id FROM `volunteer_roles` WHERE role_id = '5' ORDER BY last_used DESC";
+                $door_watch_last_used = $pdo->query($sql_door_watch_last_used);
+                $row = $door_watch_last_used ->fetch();
+             }
             $vol_id = $row['vol_id'];
             while ($found != "1"){
                 if (in_array("$vol_id", $used_for_this_date))

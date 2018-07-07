@@ -14,7 +14,7 @@
     <a class="tab" href="edit_volunteers_selection.php">Edit Volunteers</a>
     <a class="tab" href="add_volunteers.html.php">Add Volunteers</a>
     <h1>Schedules</h1>
-    <a class="tab" href="view_schedules.php">View/Edit Schedules</a>
+    <a class="tab" href="view_schedules.php">View Schedules</a>
     <a class="tab" href="add_schedules.php">Add Schedules</a>
   </div>
 

@@ -31,10 +31,11 @@
       To:
       <input type="date" name="to" class="form-control">
       </div>
-      <input type="submit" class="btn btn-primary">
+      <input type="radio" name="mode" value="Standard" checked> Standard
+      <input type="radio" name="mode" value="Printer" > Printer Friendly
+      <input type="submit" name="submit_button" value="Submit" class="btn btn-primary"/>
     </form>
     <p><?php echo $schedule; ?></p>
-
 </div>
 
 </body>

@@ -15,6 +15,7 @@ catch (PDOException $e)
 try
 {
     if (isset($_GET['from'])){
+        $mode = $_GET['mode'];
         $dateFrom = $_GET['from'];
         $dateTo = $_GET['to'];
         $sql = "SELECT date, day, CONCAT(v1.first_name, ' ', v1.last_name) as sound_console, CONCAT(v2.first_name, ' ', v2.last_name) as platform_mic, CONCAT(v3.first_name, ' ', v3.last_name) as windows_mic, CONCAT(v4.first_name, ' ', v4.last_name) as centre_mic, CONCAT(v5.first_name, ' ', v5.last_name) as notice_boards_mic, CONCAT(v6.first_name, ' ', v6.last_name) as car_watch, CONCAT(v7.first_name, ' ', v7.last_name) as door_watch FROM `schedules` LEFT OUTER JOIN volunteers v1 ON v1.id = schedules.sound_console LEFT OUTER JOIN volunteers v2 ON v2.id = schedules.platform_mic LEFT OUTER JOIN volunteers v3 ON v3.id = schedules.windows_mic LEFT OUTER JOIN volunteers v4 ON v4.id = schedules.centre_mic LEFT OUTER JOIN volunteers v5 ON v5.id = schedules.notice_boards_mic LEFT OUTER JOIN volunteers v6 ON v6.id = schedules.car_watch LEFT OUTER JOIN volunteers v7 ON v7.id = schedules.door_watch WHERE date BETWEEN '$dateFrom' and '$dateTo' ORDER BY date;";
@@ -42,6 +43,7 @@ try
 	}
 	else {
 	    $schedule = "";
+	    $mode = "Standard";
 	}
 }
 catch (PDOException $e)
@@ -51,4 +53,9 @@ catch (PDOException $e)
 	exit();
 }
 
-include 'view_schedules.html.php';
+if ($mode == "Standard"){
+    include 'view_schedules.html.php';
+}
+else if ($mode == "Printer"){
+    include 'view_schedules_printer.html.php';
+}
